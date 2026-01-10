@@ -10,9 +10,9 @@ build-dir:
 
 .PHONY: release
 release: build_dir
-	@cd $(BUILD_DIR) && cmake .. && cmake --build . --config Release
+	@cd $(BUILD_DIR) && cmake .. && make
 
 .PHONY: debug
 debug: build_dir
 	@cd $(BUILD_DIR) && cmake .. 
-	cmake --build . --config Debug && cmake --build . --config Release
+	cmake --build . --config Debug && make
