@@ -10,9 +10,10 @@ build-dir:
 
 .PHONY: release
 release: build_dir
-	@cd $(BUILD_DIR) && cmake .. && make
+	@cd $(BUILD_DIR) && cmake -DCMAKE_BUILD_TYPE=Release .. && cmake --build .
+	@echo "Release build created! Check in ${BUILD_DIR}"
 
 .PHONY: debug
 debug: build_dir
-	@cd $(BUILD_DIR) && cmake .. 
-	cmake --build . --config Debug && make
+	@cd $(BUILD_DIR) && cmake -DCMAKE_BUILD_TYPE=Debug .. && cmake --build .
+	@echo "Debug build created! Check in ${BUILD_DIR}"
