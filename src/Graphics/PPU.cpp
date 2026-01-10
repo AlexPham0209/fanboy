@@ -161,7 +161,6 @@ void PPU::renderBackground(unsigned char y) {
 		//Retrieving which tile to render at background tile i
 		unsigned char id = memory.readByte(bgOffset + ((tileY * 32) + tileX));
 
-
 		//Get address of specfic tile in either $8000 unsigned or $8800 signed method
 		unsigned short tileAddress = wOffset ? 0x8000 + (id * 16) : 0x8800 + ((char(id) + 128) * 16);
 		unsigned short yIndex = 2 * ((y + scrollingY) % 8);
@@ -246,7 +245,7 @@ void PPU::renderSprite(unsigned char y) {
 		unsigned char flags = memory.readByte(i + 3);
 
 		//If sprite doesn't intersect the scanline, then we don't render it
-		if (y < yPosition || y >= yPosition + height)
+		if (y < yPosition || y >= yPosition + height) 
 			continue;
 
 		//Get specific address for the current row of the tile
