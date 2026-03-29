@@ -71,16 +71,15 @@ void selectGame() {
 	if (result == NFD_OKAY) {
 		puts("Success!");
 		puts(outPath);
+
+		gameboy->loadGame(outPath);
 		free(outPath);
 	}
 	else if (result == NFD_CANCEL) 
 		puts("User pressed cancel.");
 	else 
 		printf("Error: %s\n", NFD_GetError());
-	
-
-	if (outPath != NULL)
-		gameboy->loadGame(outPath);
+			
 }
 
 void createPaletteWindow() {
@@ -93,6 +92,7 @@ void createPaletteWindow() {
 	ImGui::ColorEdit3("Color 2", &(*(colors + 1)).r);
 	ImGui::ColorEdit3("Color 3", &(*(colors + 2)).r);
 	ImGui::ColorEdit3("Color 4", &(*(colors + 3)).r);
+	ImGui::End();
 }
 
 void createControlWindow() {
@@ -174,6 +174,9 @@ void run() {
 	float time = 0;
 	while (running) {
 
+		if (gameboy == nullptr)
+			return;
+
 		input();
 		gameboy->step();
 		
@@ -187,7 +190,6 @@ void run() {
 			ImGui_ImplSDL2_NewFrame();
 			ImGui::NewFrame();
 			createGUI();
-			ImGui::End();
 
 			unsigned int* frame = gameboy->getFrame();
 			int pitch = sizeof(frame[0]) * 160;
