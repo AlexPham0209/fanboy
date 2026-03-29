@@ -2,8 +2,8 @@ set(IMGUI_PATH ${CMAKE_CURRENT_LIST_DIR}/imgui)
 message(${IMGUI_PATH})
     
 # Compile as static library 
-file(GLOB IMGUI_SOURCES ${IMGUI_PATH}/*.cpp) 
-add_library("ImGui" STATIC ${IMGUI_SOURCES})
-target_include_directories("ImGui" PUBLIC ${IMGUI_PATH})
+file(GLOB IMGUI_SRC ${IMGUI_PATH}/*.cpp) 
+add_library(Imgui STATIC ${IMGUI_SRC})
+target_include_directories(Imgui PUBLIC ${IMGUI_PATH})
 
 add_subdirectory(nativefiledialog-cmake)
