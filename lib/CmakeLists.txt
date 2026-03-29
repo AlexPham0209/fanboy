@@ -1,5 +1,6 @@
 set(IMGUI_PATH ${CMAKE_CURRENT_LIST_DIR}/imgui)
-
+message(${IMGUI_PATH})
+    
 # Compile as static library 
 file(GLOB IMGUI_SOURCES ${IMGUI_PATH}/*.cpp) 
 add_library("ImGui" STATIC ${IMGUI_SOURCES})
