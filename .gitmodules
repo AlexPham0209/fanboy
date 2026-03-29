@@ -1,0 +1,6 @@
+[submodule "lib/imgui"]
+	path = lib/imgui
+	url = https://github.com/ocornut/imgui.git
+[submodule "lib/nativefiledialog-cmake"]
+	path = lib/nativefiledialog-cmake
+	url = https://github.com/aarcangeli/nativefiledialog-cmake
