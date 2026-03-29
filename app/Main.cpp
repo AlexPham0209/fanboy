@@ -14,7 +14,6 @@ const int SCALE = 4;
 bool running = true;
 bool isPaletteWindowOpen = false;
 bool isControlWindowOpen = false;
-//fsd
 
 std::map<int, unsigned char> keyMap;
 
