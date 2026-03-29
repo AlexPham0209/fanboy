@@ -5,7 +5,7 @@ BUILD_DIR := build
 all: release
 
 .PHONY: build_dir
-build-dir:
+build_dir:
 	@mkdir -p $(BUILD_DIR)
 
 .PHONY: release
